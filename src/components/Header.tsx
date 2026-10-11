@@ -1,4 +1,4 @@
-import { Heart, Printer, FileCheck2, LayoutDashboard, Sparkles, RefreshCcw, ShieldCheck } from 'lucide-react';
+import { Heart, Printer, FileCheck2, LayoutDashboard, Sparkles, RefreshCcw, ShieldCheck, LogOut } from 'lucide-react';
 
 export type ActiveTab = 'dashboard' | 'rubric' | 'triangulation' | 'pdca' | 'print';
 
@@ -8,6 +8,7 @@ interface HeaderProps {
   onOpenGuide: () => void;
   logoRa?: string;
   onOpenLogoManager?: () => void;
+  onLogout?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -16,6 +17,7 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenGuide,
   logoRa = 'https://infofast.com',
   onOpenLogoManager,
+  onLogout,
 }) => {
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-stone-200">
@@ -126,6 +128,16 @@ export const Header: React.FC<HeaderProps> = ({
               <Printer className="w-3.5 h-3.5" />
               <span>Unduh PDF / Cetak</span>
             </button>
+            {onLogout && (
+              <button
+                onClick={onLogout}
+                className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-rose-700 bg-rose-50 hover:bg-rose-100 border border-rose-300 rounded-lg transition-colors whitespace-nowrap shrink-0 shadow-xs cursor-pointer hover:border-rose-400"
+                title="Keluar dari sesi portal aplikasi"
+              >
+                <LogOut className="w-3.5 h-3.5 text-rose-600 shrink-0" />
+                <span>Keluar</span>
+              </button>
+            )}
           </div>
         </div>
 
@@ -181,6 +193,16 @@ export const Header: React.FC<HeaderProps> = ({
           >
             Cetak
           </button>
+          {onLogout && (
+            <button
+              onClick={onLogout}
+              className="flex items-center gap-1 px-3 py-1 text-xs whitespace-nowrap rounded-md text-rose-700 bg-rose-50 hover:bg-rose-100 border border-rose-300 font-bold shrink-0 cursor-pointer"
+              title="Keluar dari sesi portal"
+            >
+              <LogOut className="w-3 h-3 text-rose-600" />
+              <span>Keluar</span>
+            </button>
+          )}
         </div>
       </div>
     </header>

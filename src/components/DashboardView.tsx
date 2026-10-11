@@ -18,6 +18,7 @@ import {
   Flag,
 } from 'lucide-react';
 import { EvaluationData } from '../types/kbc';
+import { KopSurat } from './KopSurat';
 import { KBC_DIMENSIONS, MAX_POSSIBLE_SCORE } from '../data/kbcFramework';
 import {
   calculateTotalScore,
@@ -104,62 +105,12 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             </button>
           )}
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', borderBottom: '3px solid #0056b3', paddingBottom: '10px', marginBottom: '0px', fontFamily: 'sans-serif' }}>
-          
-          {/* Logo Kiri */}
-          <div style={{ flex: '0 0 100px', textAlign: 'left' }}>
-            <button
-              onClick={onOpenLogoManager}
-              className="group focus:outline-none cursor-pointer"
-              title="Klik untuk melihat / mengubah logo YP3I"
-            >
-              <img
-                src={logoYp3i || 'https://infofast.com'}
-                alt="Logo YP3I"
-                style={{ height: '75px', width: 'auto', objectFit: 'contain' }}
-                className="group-hover:scale-105 transition-transform"
-                referrerPolicy="no-referrer"
-                onError={(e) => {
-                  const target = e.currentTarget;
-                  if (target.src !== '/src/assets/images/logo_yp3i_asli.svg') {
-                    target.src = '/src/assets/images/logo_yp3i_asli.svg';
-                  }
-                }}
-              />
-            </button>
-          </div>
-
-          {/* Teks Tengah */}
-          <div style={{ flex: 1, textAlign: 'center', padding: '0 15px' }}>
-            <h3 style={{ margin: 0, fontSize: '14px', fontWeight: 'bold', color: '#000', textTransform: 'uppercase' }}>
-              YAYASAN PENDIDIKAN PEMBINAAN DAN PENGEMBANGAN ISLAM (YP3I)
-            </h3>
-            <h1 style={{ margin: '5px 0', fontSize: '22px', fontWeight: 'bold', color: '#0056b3', textTransform: 'uppercase' }}>
-              RAUDHATUL ATHFAL (RA) ASY SYIFA
-            </h1>
-            <p style={{ margin: 0, fontSize: '11px', color: '#333', fontWeight: 'bold' }}>
-              Alamat Kampus : Jalan Kewadanaan Gang. Kancra No. 292 Lingk. Cibulan Kota Banjar
-            </p>
-          </div>
-
-          {/* Logo Kanan */}
-          <div style={{ flex: '0 0 100px', textAlign: 'right' }}>
-            <button
-              onClick={onOpenLogoManager}
-              className="group focus:outline-none cursor-pointer"
-              title="Klik untuk melihat atau memperbarui Logo RA Asy Syifa (RA Trans.png)"
-            >
-              <img
-                src={logoRa || 'https://infofast.com'}
-                alt="Logo RA Asy Syifa"
-                style={{ height: '75px', width: 'auto', objectFit: 'contain' }}
-                className="group-hover:scale-105 transition-transform"
-                referrerPolicy="no-referrer"
-              />
-            </button>
-          </div>
-
-        </div>
+        <KopSurat
+          logoYp3i={logoYp3i}
+          logoRa={logoRa}
+          onOpenLogoManager={onOpenLogoManager}
+          marginBottomClass="mb-0"
+        />
       </div>
 
       {/* Hero Banner with Authentic Visual and Document Context */}

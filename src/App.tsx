@@ -7,14 +7,23 @@ import { PdcaAndRtlView } from './components/PdcaAndRtlView';
 import { PrintReportView } from './components/PrintReportView';
 import { PancaCintaModal } from './components/PancaCintaModal';
 import { LogoManagerModal } from './components/LogoManagerModal';
+import { LoginPage } from './components/LoginPage';
 import { EvaluationData } from './types/kbc';
 import { INITIAL_EVALUATION } from './data/initialData';
 import { getStoredLogos, LogoConfig } from './utils/logoStorage';
 import { Download, Upload, RotateCcw, Heart, Check, Sparkles, ShieldCheck } from 'lucide-react';
 
 const STORAGE_KEY = 'kbc_ra_asysyifa_evaluation_data_v3';
+const AUTH_STORAGE_KEY = 'kbc_ra_asysyifa_auth_session_v1';
 
 export default function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
+    try {
+      return localStorage.getItem(AUTH_STORAGE_KEY) === 'true';
+    } catch {
+      return false;
+    }
+  });
   const [logoConfig, setLogoConfig] = useState<LogoConfig>(() => getStoredLogos());
   const [isLogoManagerOpen, setIsLogoManagerOpen] = useState(false);
 
@@ -224,6 +233,40 @@ export default function App() {
     setActiveTab('rubric');
   };
 
+  const handleLoginSuccess = (user: { username: string; name: string; role: string }) => {
+    try {
+      localStorage.setItem(AUTH_STORAGE_KEY, 'true');
+    } catch (e) {
+      console.error(e);
+    }
+    setIsAuthenticated(true);
+    showToast(`Selamat datang di KBC RA Asy Syifa, ${user.name}!`);
+  };
+
+  const handleLogout = () => {
+    try {
+      localStorage.removeItem(AUTH_STORAGE_KEY);
+      sessionStorage.removeItem(AUTH_STORAGE_KEY);
+    } catch (e) {
+      console.error(e);
+    }
+    setIsAuthenticated(false);
+  };
+
+  // Proteksi Halaman: Pastikan halaman utama tidak bisa diakses sebelum login sukses
+  if (!isAuthenticated) {
+    return (
+      <LoginPage
+        logoRa={
+          logoConfig.logoRa && !logoConfig.logoRa.includes('logo_ra_asli')
+            ? logoConfig.logoRa
+            : 'https://infofast.com'
+        }
+        onLoginSuccess={handleLoginSuccess}
+      />
+    );
+  }
+
   return (
     <div className="min-h-screen bg-stone-50 text-stone-900 flex flex-col font-sans">
       {/* Top Navigation Bar adhering to Top Bar Contract */}
@@ -233,6 +276,7 @@ export default function App() {
         onOpenGuide={() => setIsGuideOpen(true)}
         logoRa={logoConfig.logoRa}
         onOpenLogoManager={() => setIsLogoManagerOpen(true)}
+        onLogout={handleLogout}
       />
 
       {/* Main Content Area */}

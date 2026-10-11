@@ -19,6 +19,7 @@ import {
 } from '../utils/evaluationCalculations';
 import { exportKbcToPdf, openStandalonePrintPage } from '../utils/pdfGenerator';
 import { LogoConfig } from '../utils/logoStorage';
+import { KopSurat } from './KopSurat';
 import { Image as ImageIcon, ShieldCheck } from 'lucide-react';
 
 interface PrintReportViewProps {
@@ -146,58 +147,15 @@ export const PrintReportView: React.FC<PrintReportViewProps> = ({
       {/* Official Paper Document Area */}
       <div
         id="printable-report"
-        className="bg-white border border-stone-300 rounded-xl p-8 sm:p-12 print:p-0 print:border-none shadow-sm max-w-5xl mx-auto print:max-w-none text-stone-900 font-sans"
+        className="bg-white border border-stone-300 rounded-xl p-3.5 sm:p-8 md:p-12 print:p-0 print:border-none shadow-sm max-w-5xl mx-auto print:max-w-none text-stone-900 font-sans"
       >
-        {/* Kop Surat Resmi Yayasan & RA Asy Syifa (Sesuai Format Pengguna) */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', borderBottom: '3px solid #0056b3', paddingBottom: '10px', marginBottom: '20px', fontFamily: 'sans-serif' }}>
-          
-          {/* Logo Kiri */}
-          <div style={{ flex: '0 0 100px', textAlign: 'left' }}>
-            <img
-              src={logoConfig.logoYp3i || 'https://infofast.com'}
-              alt="Logo YP3I"
-              style={{ height: '75px', width: 'auto', objectFit: 'contain' }}
-              referrerPolicy="no-referrer"
-              onError={(e) => {
-                const target = e.currentTarget;
-                if (target.src !== '/src/assets/images/logo_yp3i_asli.svg') {
-                  target.src = '/src/assets/images/logo_yp3i_asli.svg';
-                }
-              }}
-            />
-          </div>
-
-          {/* Teks Tengah */}
-          <div style={{ flex: 1, textAlign: 'center', padding: '0 15px' }}>
-            <h3 style={{ margin: 0, fontSize: '14px', fontWeight: 'bold', color: '#000', textTransform: 'uppercase' }}>
-              YAYASAN PENDIDIKAN PEMBINAAN DAN PENGEMBANGAN ISLAM (YP3I)
-            </h3>
-            <h1 style={{ margin: '5px 0', fontSize: '22px', fontWeight: 'bold', color: '#0056b3', textTransform: 'uppercase' }}>
-              RAUDHATUL ATHFAL (RA) ASY SYIFA
-            </h1>
-            <p style={{ margin: 0, fontSize: '11px', color: '#333', fontWeight: 'bold' }}>
-              Alamat Kampus : Jalan Kewadanaan Gang. Kancra No. 292 Lingk. Cibulan Kota Banjar
-            </p>
-          </div>
-
-          {/* Logo Kanan */}
-          <div style={{ flex: '0 0 100px', textAlign: 'right' }}>
-            <button
-              onClick={onOpenLogoManager}
-              className="group focus:outline-none cursor-pointer print:pointer-events-none"
-              title="Klik untuk melihat atau memperbarui Logo RA Asy Syifa (RA Trans.png)"
-            >
-              <img
-                src={logoConfig.logoRa || 'https://infofast.com'}
-                alt="Logo RA Asy Syifa"
-                style={{ height: '75px', width: 'auto', objectFit: 'contain' }}
-                className="group-hover:scale-105 transition-transform"
-                referrerPolicy="no-referrer"
-              />
-            </button>
-          </div>
-
-        </div>
+        {/* Kop Surat Resmi Yayasan & RA Asy Syifa - Presisi & Simetris di Mobile, Tablet & Desktop */}
+        <KopSurat
+          logoYp3i={logoConfig.logoYp3i}
+          logoRa={logoConfig.logoRa}
+          onOpenLogoManager={onOpenLogoManager}
+          marginBottomClass="mb-4 sm:mb-6 md:mb-8"
+        />
 
         {/* Judul Dokumen */}
         <div className="text-center mb-8">

@@ -445,31 +445,65 @@ export function openStandalonePrintPage(
     .sig-space { height: 50px; }
     .footer-bar { margin-top: 30px; padding-top: 8px; border-top: 1px solid #c7d2fe; text-align: center; font-size: 8pt; color: #475569; }
     .btn-print { position: fixed; top: 15px; right: 15px; padding: 10px 18px; background: #065f46; color: white; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
-    @media print { .btn-print { display: none; } body { padding: 0; } .page-break { page-break-before: always; } }
+    .kop-container { display: flex; align-items: center; justify-content: space-between; width: 100%; border-bottom: 3px solid #0056b3; padding-bottom: 8px; margin-bottom: 18px; font-family: Arial, Helvetica, sans-serif; }
+    .kop-logo-col { width: 100px; flex: 0 0 100px; display: flex; align-items: center; }
+    .kop-logo-left { justify-content: flex-start; text-align: left; }
+    .kop-logo-right { justify-content: flex-end; text-align: right; }
+    .kop-logo-img { height: 75px; width: auto; max-width: 100%; object-fit: contain; }
+    .kop-center { flex: 1; text-align: center; padding: 0 12px; min-width: 0; }
+    .kop-h3 { margin: 0; font-size: 13.5px; font-weight: bold; color: #000; text-transform: uppercase; line-height: 1.25; }
+    .kop-h1 { margin: 4px 0; font-size: 21px; font-weight: bold; color: #0056b3; text-transform: uppercase; line-height: 1.2; }
+    .kop-p { margin: 0; font-size: 10.5px; color: #333; font-weight: bold; line-height: 1.3; }
+
+    @media screen and (max-width: 640px) {
+      .kop-logo-col { width: 52px; flex: 0 0 52px; }
+      .kop-logo-img { height: 48px; }
+      .kop-center { padding: 0 6px; }
+      .kop-h3 { font-size: 9.5px; }
+      .kop-h1 { font-size: 14px; margin: 2px 0; }
+      .kop-p { font-size: 8.5px; }
+    }
+    @media screen and (min-width: 641px) and (max-width: 840px) {
+      .kop-logo-col { width: 75px; flex: 0 0 75px; }
+      .kop-logo-img { height: 60px; }
+      .kop-center { padding: 0 8px; }
+      .kop-h3 { font-size: 12px; }
+      .kop-h1 { font-size: 18px; margin: 3px 0; }
+      .kop-p { font-size: 9.5px; }
+    }
+    @media print {
+      .btn-print { display: none; }
+      body { padding: 0; }
+      .page-break { page-break-before: always; }
+      .kop-logo-col { width: 100px !important; flex: 0 0 100px !important; }
+      .kop-logo-img { height: 75px !important; }
+      .kop-center { padding: 0 15px !important; }
+      .kop-h3 { font-size: 14px !important; }
+      .kop-h1 { font-size: 22px !important; }
+      .kop-p { font-size: 11px !important; }
+    }
   </style>
 </head>
 <body>
   <button class="btn-print" onclick="window.print()">🖨️ Cetak / Simpan PDF (Ctrl+P)</button>
 
-  <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; border-bottom: 3px solid #0056b3; padding-bottom: 10px; margin-bottom: 20px; font-family: sans-serif;">
-    
+  <div class="kop-container">
     <!-- Logo Kiri -->
-    <div style="flex: 0 0 100px; text-align: left;">
-      <img src="${logos.logoYp3i || 'https://infofast.com'}" alt="Logo YP3I" onerror="this.onerror=null;this.src='/src/assets/images/logo_yp3i_asli.svg';" style="height: 75px; width: auto; object-fit: contain;">
+    <div class="kop-logo-col kop-logo-left">
+      <img src="${logos.logoYp3i || 'https://infofast.com'}" alt="Logo YP3I" onerror="this.onerror=null;this.src='/src/assets/images/logo_yp3i_asli.svg';" class="kop-logo-img">
     </div>
 
     <!-- Teks Tengah -->
-    <div style="flex: 1; text-align: center; padding: 0 15px;">
-      <h3 style="margin: 0; font-size: 14px; font-weight: bold; color: #000; text-transform: uppercase;">YAYASAN PENDIDIKAN PEMBINAAN DAN PENGEMBANGAN ISLAM (YP3I)</h3>
-      <h1 style="margin: 5px 0; font-size: 22px; font-weight: bold; color: #0056b3; text-transform: uppercase;">RAUDHATUL ATHFAL (RA) ASY SYIFA</h1>
-      <p style="margin: 0; font-size: 11px; color: #333; font-weight: bold;">Alamat Kampus : Jalan Kewadanaan Gang. Kancra No. 292 Lingk. Cibulan Kota Banjar</p>
+    <div class="kop-center">
+      <h3 class="kop-h3">YAYASAN PENDIDIKAN PEMBINAAN DAN PENGEMBANGAN ISLAM (YP3I)</h3>
+      <h1 class="kop-h1">RAUDHATUL ATHFAL (RA) ASY SYIFA</h1>
+      <p class="kop-p">Alamat Kampus : Jalan Kewadanaan Gang. Kancra No. 292 Lingk. Cibulan Kota Banjar</p>
     </div>
 
     <!-- Logo Kanan -->
-    <div style="flex: 0 0 100px; text-align: right;">
-      <img src="${logos.logoRa || 'https://infofast.com'}" alt="Logo RA Asy Syifa" style="height: 75px; width: auto; object-fit: contain;">
+    <div class="kop-logo-col kop-logo-right">
+      <img src="${logos.logoRa || 'https://infofast.com'}" alt="Logo RA Asy Syifa" class="kop-logo-img">
     </div>
-
   </div>
 
   <div class="doc-title">
