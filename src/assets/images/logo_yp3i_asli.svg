@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="100%" height="100%">
+  <!-- Definitions -->
+  <defs>
+    <linearGradient id="yp3i_green_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8cc63f" />
+      <stop offset="60%" stop-color="#73b934" />
+      <stop offset="100%" stop-color="#46992b" />
+    </linearGradient>
+    <linearGradient id="yp3i_curve_grad" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#a4d84f" />
+      <stop offset="100%" stop-color="#5fa92d" />
+    </linearGradient>
+  </defs>
+
+  <!-- Top Dark Green Header Ribbon -->
+  <rect x="20" y="10" width="670" height="72" fill="#007e3a" />
+  <text x="45" y="62" font-family="'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="64" fill="#ffffff" letter-spacing="1">YP3I ASY-SYIFA</text>
+
+  <!-- Roof Silhouette on Top Right -->
+  <polygon points="705,82 830,12 950,82" fill="#007e3a" />
+
+  <!-- Horizontal Divider Line below ribbon -->
+  <line x1="20" y1="92" x2="950" y2="92" stroke="#007e3a" stroke-width="4" />
+
+  <!-- Main Body Green Background Box -->
+  <path d="M 20,105 L 950,105 L 950,345 L 260,345 L 260,395 L 20,430 Z" fill="url(#yp3i_green_grad)" />
+
+  <!-- Dynamic Aesthetic Curve in Body -->
+  <path d="M 20,260 Q 300,140 950,160 L 950,345 L 260,345 L 260,395 L 20,430 Z" fill="url(#yp3i_curve_grad)" opacity="0.4" />
+  <path d="M 20,180 Q 400,240 950,120 L 950,105 L 20,105 Z" fill="#9bd246" opacity="0.6" />
+
+  <!-- Arabic Calligraphy "الشفاء" in Geometric Kufic (Pure White) -->
+  <g fill="#ffffff">
+    <!-- Rightmost Stem (Alif & Lam) -->
+    <rect x="830" y="125" width="42" height="205" rx="3" />
+    <rect x="790" y="125" width="32" height="205" rx="3" />
+
+    <!-- Shin Base and 3 Teeth -->
+    <rect x="580" y="275" width="225" height="55" rx="2" />
+    <!-- Shin Teeth -->
+    <rect x="745" y="260" width="48" height="70" rx="3" />
+    <rect x="668" y="260" width="48" height="70" rx="3" />
+    <rect x="590" y="260" width="48" height="70" rx="3" />
+
+    <!-- Center Fa Loop Body -->
+    <path d="M 380,240 L 530,240 L 530,330 L 380,330 Z" />
+    <!-- Fa Inner Hole -->
+    <rect x="428" y="268" width="55" height="38" fill="#5ba62c" />
+
+    <!-- Left Arm & Hamzah -->
+    <rect x="260" y="275" width="140" height="55" />
+    <path d="M 65,300 L 220,300 L 220,330 L 65,330 Z" />
+    <rect x="125" y="240" width="40" height="65" />
+    <rect x="125" y="240" width="85" height="30" />
+  </g>
+
+  <!-- Accent Square Dots (Original Colors of YP3I) -->
+  <!-- 1. Yellow Square Dot above Fa -->
+  <rect x="422" y="152" width="65" height="48" fill="#fff200" stroke="#007e3a" stroke-width="2.5" />
+
+  <!-- 2. Blue Square Dot above Shin Left Tooth -->
+  <rect x="590" y="200" width="48" height="40" fill="#004d9c" />
+
+  <!-- 3. Green Square Dot above Shin Center Tooth -->
+  <rect x="668" y="200" width="48" height="40" fill="#007e3a" />
+
+  <!-- 4. Red Square Dot above Shin Right Tooth -->
+  <rect x="745" y="200" width="48" height="40" fill="#d91b24" />
+
+  <!-- Bottom Orange Text: KOTA BANJAR -->
+  <text x="275" y="420" font-family="'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="88" fill="#f26522" letter-spacing="3">KOTA BANJAR</text>
+</svg>

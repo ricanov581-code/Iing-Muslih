@@ -1,0 +1,50 @@
+<svg xmlns="http://w3.org" viewBox="0 0 500 500" width="100%" height="100%">
+  <!-- Lapisan 1: Bintang Luar Hijau -->
+  <path d="M250 10 L310 130 L440 90 L390 210 L490 250 L390 290 L440 410 L310 370 L250 490 L190 370 L60 410 L110 290 L10 250 L110 210 L60 90 L190 130 Z" fill="#009345" stroke="#007136" stroke-width="3"/>
+  
+  <!-- Lapisan 2: Bintang Putih -->
+  <path d="M250 22 L306 132 L426 96 L380 206 L474 250 L380 294 L426 404 L306 368 L250 478 L194 368 L74 404 L120 294 L26 250 L120 206 L74 96 L194 132 Z" fill="#ffffff"/>
+  
+  <!-- Lapisan 3: Bintang Kuning -->
+  <path d="M250 30 L302 134 L416 100 L372 204 L462 250 L372 296 L416 400 L302 366 L250 470 L198 366 L84 400 L128 296 L38 250 L128 204 L84 100 L198 134 Z" fill="#fff100"/>
+  
+  <!-- Lapisan 4: Latar Dalam Biru Muda Sempurna -->
+  <path d="M250 42 L298 136 L402 106 L362 202 L446 250 L362 298 L402 394 L298 364 L250 458 L202 364 L98 394 L138 298 L54 250 L138 202 L98 106 L202 136 Z" fill="#5dc6e9"/>
+
+  <!-- Sayap Kiri Proproporsional Hitam Abu -->
+  <g fill="#231f20">
+    <path d="M165 140 C140 170 115 220 115 270 C115 330 135 355 150 360 C140 335 128 300 128 270 C128 230 150 180 165 140 Z"/>
+    <path d="M152 175 C136 200 125 240 125 270 C125 310 138 332 146 340 C138 320 133 295 133 270 C133 240 145 200 152 175 Z" fill="#7f7f7f"/>
+    <circle cx="138" cy="348" r="9"/>
+  </g>
+
+  <!-- Sayap Kanan (Mirror) -->
+  <g fill="#231f20" transform="translate(500, 0) scale(-1, 1)">
+    <path d="M165 140 C140 170 115 220 115 270 C115 330 135 355 150 360 C140 335 128 300 128 270 C128 230 150 180 165 140 Z"/>
+    <path d="M152 175 C136 200 125 240 125 270 C125 310 138 332 146 340 C138 320 133 295 133 270 C133 240 145 200 152 175 Z" fill="#7f7f7f"/>
+    <circle cx="138" cy="348" r="9"/>
+  </g>
+
+  <!-- Meja Rehal Al-Qur'an Orange -->
+  <g fill="#f58220">
+    <polygon points="150,295 250,260 350,295 295,320 250,285 205,320" stroke="#d96a14" stroke-width="2"/>
+    <polygon points="250,285 250,340 295,320" fill="#d96a14"/>
+    <polygon points="250,285 250,340 205,320" fill="#b05106"/>
+  </g>
+
+  <!-- Kitab Suci Al-Qur'an Putih -->
+  <path d="M250 270 Q210 248 150 260 L165 232 Q215 220 250 245 Q285 220 335 232 L350 260 Q290 248 250 270 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="250" y1="245" x2="250" y2="270" stroke="#94a3b8" stroke-width="2"/>
+
+  <!-- Kaligrafi Simpel Berwarna -->
+  <g transform="translate(250, 155) scale(0.95)" fill="none" stroke-linecap="round">
+    <path d="M20 -60 C30 -20 15 20 -5 40" stroke="#2e3192" stroke-width="12"/>
+    <path d="M-35 -15 C-15 -45 15 -30 0 0 C-15 20 15 15 0 35" stroke="#ed1c24" stroke-width="11"/>
+    <path d="M-45 10 C-30 -10 -5 10 -20 30 C-35 40 -50 25 -45 10 Z" fill="#00a859"/>
+    <circle cx="28" cy="-15" r="7" fill="#f58220"/>
+  </g>
+
+  <!-- Teks Statis Di Sisi Bawah Logo -->
+  <text x="250" y="385" text-anchor="middle" font-family="'Arial Black', sans-serif" font-size="16" font-weight="900" fill="#1b365d" letter-spacing="0.5">RAUDLATUL ATHFAL</text>
+  <text x="250" y="432" text-anchor="middle" font-family="'Arial Black', 'Impact', sans-serif" font-size="40" font-weight="900" fill="#1b365d" stroke="#ffffff" stroke-width="6" paint-order="stroke fill">ASY-SYIFA</text>
+</svg>

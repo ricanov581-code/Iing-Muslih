@@ -1,0 +1,6 @@
+{
+  "name": "KBC Evaluator - RA Asy Syifa",
+  "description": "Aplikasi Interaktif Evaluasi Implementasi Kurikulum Berbasis Cinta (KBC) di RA Asy Syifa berbasis 8 Dimensi, Panca Cinta, Triangulasi, dan Siklus PDCA.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
